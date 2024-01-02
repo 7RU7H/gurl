@@ -9,6 +9,8 @@ import (
         "os"
 )
 
+ // petergrep
+// modified from https://stackoverflow.com/questions/26709971/could-this-be-more-efficient-in-go
 //make optional http or dotTLDMap
 func grepFile(file string, patterns []byte) (int64 map[int]string) {
 //pattersMap http, dotTLDmap
