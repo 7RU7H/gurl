@@ -40,16 +40,15 @@ func grepFile(file string, patterns []byte) (int64 map[int]string) {
         return patCount, artifacts
 }
 
-
-func createFile(filepath string){
-        filePtr, err := os.Create("");
+func createFile(filepath string) error {
+        filePtr, err := os.Create(filename);
         if err != nil {
-                log.Fatal(err);
+                fmt.Fprintln(os.Stderr, "File Creation Error:", err)
+                //log.Fatal(err);
         }
-        defer filePtr.Close(); // close the file
-        // We can read from and write to the file
+        defer filePtr.Close(); 
+        return nil
 }
-
 
 func appendToFile(content, filename string){
         file, err := os.OpenFile(filename, os.O_APPEND | os.O_WRONLY, 0644);
